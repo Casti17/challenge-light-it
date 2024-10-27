@@ -1,0 +1,35 @@
+version: '3.4'
+
+services:
+  frontend:
+    build:
+      context: ./frontend/challenge-patient-registration
+      dockerfile: Dockerfile
+    ports:
+      - "3000:3000"
+  webapi:
+    image: patient-registry
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - "8080:80"
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Development
+      - ConnectionStrings__DefaultConnection=server=mysql;port=3306;database=patient_registration;user=root;password=S3cureP@ssw0rd;
+    depends_on:
+      - mysql
+
+  mysql:
+    image: mysql:8.0
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: S3cureP@ssw0rd
+      MYSQL_DATABASE: patient_registration
+    ports:
+      - "3306:3306"
+    volumes:
+      - mysql_data:/var/lib/mysql
+  
+volumes:
+  mysql_data:

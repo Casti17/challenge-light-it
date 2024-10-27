@@ -1,0 +1,42 @@
+version: '3.8'
+services:
+
+  db:
+    image: mysql:8.0
+    environment:
+      MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD}
+      MYSQL_DATABASE: ${MYSQL_DATABASE}
+    ports:
+      - "3306:3306"          # MySQL port mapping
+    volumes:
+      - dbdata:/var/lib/mysql
+
+  backend:
+    build:
+      context: ./backend/PatientRegistry  # Relative path to backend folder
+      dockerfile: Dockerfile
+    ports:
+      - "${BACKEND_PORT}:5000" # Using environment variables for ports
+    env_file:
+      - environment.env                # Root .env file
+      - ./backend/PatientRegistry/environment.env      # Backend-specific .env file
+    depends_on:
+      - db
+    volumes:
+      - ./data/images:/app/wwwroot/images
+    command: sh -c "mkdir -p /app/wwwroot/images && dotnet PatientRegistry.dll"
+
+  frontend:
+    build:
+      context: ./frontend/challenge-patient-registration  # Relative path to frontend folder
+      dockerfile: Dockerfile
+    ports:
+      - "${FRONTEND_PORT}:3001" # Using environment variables for ports
+    env_file:
+      - environment.env                 # Root .env file
+      - ./frontend/challenge-patient-registration/.env      # Frontend-specific .env file
+    depends_on:
+      - backend
+
+volumes:
+  dbdata:
