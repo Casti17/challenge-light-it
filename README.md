@@ -5,3 +5,4 @@ To execute the aplication:
   - open a terminal in the main folder of the project (the one that contains the backend and frontend folders)
   - execute following command : docker-compose --env-file environment.env up --build -d
   - may need to execute docker pull mcr.microsoft.com/dotnet/sdk:8.0 to properly setup the .net sdk
+  - check for environment variables and modify if needed.
