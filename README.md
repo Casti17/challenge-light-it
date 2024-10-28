@@ -42,3 +42,10 @@ Accessing the Application
 
 -   **Frontend**: Once the containers are up and running, you can access the frontend by navigating to <http://localhost:3001> in your web browser.
 -   **Backend**: The backend API should be available at <http://localhost:5000>.
+
+
+Disclaimers
+-------------------------
+-  The mail service was implemented using Mailtrap.
+![image](https://github.com/user-attachments/assets/2d096cbd-4ff2-4cb5-a191-d6be6330211d)
+-  As requested, the SMS service was created but not implemented.
