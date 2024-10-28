@@ -13,18 +13,14 @@ Setup Steps
 
 1.  **Create Environment File**: In the `challenge-patient-registration` directory, create an `.env` file to configure the frontend endpoints. Add the following lines to this file:
 
-    `REACT_APP_API_URL=http://localhost:5000/api
-    REACT_APP_PICTURE_URL=http://localhost:5000`
+    `REACT_APP_API_URL=http://localhost:5000/api`
+    `REACT_APP_PICTURE_URL=http://localhost:5000`
 
 2.  **Start Docker Containers**:
 
     -   Open a terminal in the main project folder (the folder containing both `backend` and `frontend` directories).
 
     -   Run the following command to build and start the application:
-
-        bash
-
-        Copiar código
 
         `docker-compose --env-file environment.env up --build -d`
 
