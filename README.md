@@ -13,7 +13,7 @@ Setup Steps
 
 1.  **Modify Main Environment File**: In the main directory, you can edit the example.env file with the information needed for your environment.
 
-2.  **Modify appsettings File for backend**: There is an appsettings.sample.json file for the backend environment variables. Edit with the corresponding information according to your environment.
+2.  **Modify appsettings File for backend**: There is an appsettings.sample.json file for the backend environment variables. Edit with the corresponding information according to your environment. Remove the **sample** text after finished.
 
 3.   **Create Environment File for frontend**: Create an `.env` file to configure the frontend endpoints in the `challenge-patient-registration` directory.  Add the following lines to this file:
 
