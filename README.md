@@ -11,7 +11,9 @@ Prerequisites
 Setup Steps
 -----------
 
-1.  **Create Environment File**: In the `challenge-patient-registration` directory, create an `.env` file to configure the frontend endpoints. Add the following lines to this file:
+1.  **Modify Main Environment File**: In the main directory, you can edit the example.env file (rename it to just .env) with the information needed for your environment.
+
+2.   **Create Environment File**: Also, `challenge-patient-registration` directory, create an `.env` file to configure the frontend endpoints. Add the following lines to this file:
 
     `REACT_APP_API_URL=http://localhost:5000/api`
     
