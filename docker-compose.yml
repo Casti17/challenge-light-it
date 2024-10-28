@@ -18,8 +18,8 @@ services:
     ports:
       - "${BACKEND_PORT}:5000" # Using environment variables for ports
     env_file:
-      - environment.env                # Root .env file
-      - ./backend/PatientRegistry/environment.env      # Backend-specific .env file
+      - .env                # Root .env file
+      - ./backend/PatientRegistry/.env      # Backend-specific .env file
     depends_on:
       - db
     volumes:
@@ -33,7 +33,7 @@ services:
     ports:
       - "${FRONTEND_PORT}:3001" # Using environment variables for ports
     env_file:
-      - environment.env                 # Root .env file
+      - .env                 # Root .env file
       - ./frontend/challenge-patient-registration/.env      # Frontend-specific .env file
     depends_on:
       - backend
