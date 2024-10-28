@@ -13,13 +13,15 @@ Setup Steps
 
 1.  **Modify Main Environment File**: In the main directory, you can edit the example.env file with the information needed for your environment.
 
-2.   **Create Environment File**: Also, `challenge-patient-registration` directory, create an `.env` file to configure the frontend endpoints. Add the following lines to this file:
+2.  **Modify appsettings File for backend**: There is an appsettings.sample.json file for the backend environment variables. Edit with the corresponding information according to your environment.
+
+3.   **Create Environment File for frontend**: Create an `.env` file to configure the frontend endpoints in the `challenge-patient-registration` directory.  Add the following lines to this file:
 
     `REACT_APP_API_URL=http://localhost:5000/api`
     
     `REACT_APP_PICTURE_URL=http://localhost:5000`
 
-3.  **Start Docker Containers**:
+4.  **Start Docker Containers**:
 
     -   Open a terminal in the main project folder (the folder containing both `backend` and `frontend` directories).
 
@@ -27,13 +29,13 @@ Setup Steps
 
         `docker-compose --env-file environment.env up --build -d`
 
-4.  **.NET SDK Setup**:
+5.  **.NET SDK Setup**:
 
     -   If you encounter issues with the .NET SDK, you may need to pull it manually by running:
 
         `docker pull mcr.microsoft.com/dotnet/sdk:8.0`
 
-5.  **Verify and Update Environment Variables**:
+6.  **Verify and Update Environment Variables**:
 
     -   Ensure that the environment variables in the `.env` file are correctly configured for your setup. Modify them as needed to match your specific environment.
 
