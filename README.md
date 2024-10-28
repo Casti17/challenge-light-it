@@ -48,6 +48,9 @@ Accessing the Application
 
 Disclaimers
 -------------------------
+-  This repository has both the frontend and backend, as the only way I could find to implement them both while using docker was having them both in the same directory. The links to the original repos are the following:
+    - Backend: [https://github.com/Casti17/PatientRegistry-challenge](https://github.com/Casti17/PatientRegistry-challenge)
+    - Frontend: [https://github.com/Casti17/challenge-lightit](https://github.com/Casti17/challenge-lightit)
 -  The mail service was implemented using Mailtrap.
 ![image](https://github.com/user-attachments/assets/2d096cbd-4ff2-4cb5-a191-d6be6330211d)
 -  As requested, the SMS service was created but not implemented.
