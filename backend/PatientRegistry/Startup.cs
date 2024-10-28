@@ -35,6 +35,7 @@ namespace PatientRegistry
             });
 
             services.AddScoped<PatientsService>();
+            services.AddTransient<MailService>();
         }
 
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)

@@ -10,7 +10,7 @@ export const registerPatient = async (
   const formData = new FormData();
   formData.append("name", name);
   formData.append("email", email);
-  formData.append("phoneNumber", `${countryCode} ${phoneNumber}`);
+  formData.append("phoneNumber", `+${countryCode} ${phoneNumber}`);
 
   if (documentPhoto) {
     formData.append("documentPhoto", documentPhoto);
