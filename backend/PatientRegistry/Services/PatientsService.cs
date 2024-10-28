@@ -7,10 +7,12 @@ namespace PatientRegistry.Services
     public class PatientsService
     {
         private readonly AppDbContext _context;
+        private readonly MailService _mailService;
 
-        public PatientsService(AppDbContext context)
+        public PatientsService(AppDbContext context, MailService mailService)
         {
             _context = context;
+            _mailService = mailService;
         }
 
         public async Task<string> RegisterPatientAsync(Patient patient, IFormFile documentPhoto)
@@ -20,23 +22,20 @@ namespace PatientRegistry.Services
                 if (documentPhoto != null && documentPhoto.Length > 0)
                 {
                     var fileName = Guid.NewGuid().ToString() + Path.GetExtension(documentPhoto.FileName);
-                    var filePath = Path.Combine("wwwroot/images", fileName); // Save to wwwroot/images
+                    var filePath = Path.Combine("wwwroot/images", fileName);
 
                     using (var stream = new FileStream(filePath, FileMode.Create))
                     {
                         await documentPhoto.CopyToAsync(stream);
                     }
 
-                    // Store the file path in the database
-                    patient.DocumentPhotoPath = "/images/" + fileName; // Relative path for the frontend
+                    patient.DocumentPhotoPath = "/images/" + fileName;
                 }
-
 
                 _context.Patients.Add(patient);
                 await _context.SaveChangesAsync();
 
-                // Send confirmation email asynchronously
-                await MailService.SendConfirmationEmailAsync(patient.Email);
+                await _mailService.SendConfirmationEmailAsync(patient.Email);
 
                 return "Patient registered successfully!";
             }
