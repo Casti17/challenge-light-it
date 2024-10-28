@@ -28,15 +28,11 @@ Setup Steps
 
     -   If you encounter issues with the .NET SDK, you may need to pull it manually by running:
 
-        bash
-
-        Copiar código
-
         `docker pull mcr.microsoft.com/dotnet/sdk:8.0`
 
 4.  **Verify and Update Environment Variables**:
 
-    -   Ensure that the environment variables in the `.env` file and `environment.env` are correctly configured for your setup. Modify them as needed to match your specific environment.
+    -   Ensure that the environment variables in the `.env` file are correctly configured for your setup. Modify them as needed to match your specific environment.
 
 Accessing the Application
 -------------------------
