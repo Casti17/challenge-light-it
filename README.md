@@ -27,7 +27,7 @@ Setup Steps
 
     -   Run the following command to build and start the application:
 
-        `docker-compose --env-file environment.env up --build -d`
+        `docker-compose --env-file .env up --build -d`
 
 5.  **.NET SDK Setup**:
 
